@@ -1,0 +1,271 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
+    <title>RATE IT</title>
+    <link rel="icon" href="themes\images\icons-png/calendar-black.png" type="image/gif" sizes="16x16">
+    <!--jQuery-->
+    
+    <!--jQuery mobile css-->
+    <link rel="stylesheet" type="text/css" href="css/lib/jquery.mobile-1.4.5.css">
+    <link rel="stylesheet" href="themes/bluegreen.min.css" />
+    <link rel="stylesheet" href="themes/jquery.mobile.icons.min.css" />
+    <link rel="stylesheet" href="http://code.jquery.com/mobile/1.4.5/jquery.mobile.structure-1.4.5.min.css" />
+    <script src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+    <script src="http://code.jquery.com/mobile/1.4.5/jquery.mobile-1.4.5.min.js"></script>
+    <!--jQuery validation library-->
+    <script src="js/lib/jquery.validate.js"></script>
+    <!--Scripts-->
+    <script src="js/database.js"></script>
+    <script src="js/agendaDAL.js"></script>
+    <script src="js/util.js"></script>
+    <script src="js/global.js"></script>
+    <script src="js/facade.js"></script>\
+    <script src="js/functions.js"></script>
+    <link rel="stylesheet" type="text/css" href="css/mystyles.css">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+</head>
+
+<body>
+
+    <!--HomePage-->
+    <div data-role="page" id="HomePage">
+        <header data-role="header" data-position="fixed" style="text-shadow: none;">
+            <h2>Agenda</h2>
+            <div data-role="navbar" data-iconpos="top">
+                <ul>
+                    <li><a href="#HomePage" data-icon="home" data-theme="a" class="ui-btn-active
+                    ui-state-persist">Home</a>
+                    </li>
+                    <li><a href="#ViewTasksPage" data-icon="calendar" data-theme="a">TODO</a>
+                    </li>
+                    <li><a href="#SettingsPage" data-icon="gear" data-theme="a">Settings</a>
+                    </li>
+                </ul>
+            </div>
+        </header>
+        <br>
+        <div align="center">
+        <br/>
+            <div class="digital-clock">00:00:00</div>
+        </div>
+        <h2 align="center" style="color:#66FCF1;font-family:Monospace;">Create Task</h2>
+        <div>
+            <div data-role="controlgroup">
+                <a href="#TasksPage" data-role="button">Today's Task</a>
+                <br/>
+                <a href="#TasksPage" data-role="button">Tomorrow's Task</a>
+                <br/>
+                <a href="#TasksPage" data-role="button">Future Task</a>
+                <br/>
+                </div>
+        </div>
+        <br/>
+        <div align="center">
+            <h1 style="color:#66FCF1;font-family:Monospace;text-align:center">Stay Motivated</h1>
+            <div class="slideshow-container">
+
+                <div class="mySlides fade">
+                  <h2><div style="font-family:Monospace;text-align:center" class="text">"Once begun. A task is easy; half the work is done"</div></h2>
+                </div>
+                
+                <div class="mySlides fade">
+                  <h2><div style="font-family:Monospace;text-align:center" class="text">"It always seems impossible, until its done -Nelson Mandela"</div></h2>
+                </div>
+                
+                <div class="mySlides fade">
+                  <h2><div style="font-family:Monospace;text-align:center" class="text">"If you can do a task in two minutes do it straigh away -Sam Bell"</div></h2>
+                </div>
+
+                <div class="mySlides fade">
+                    <h2><div style="font-family:Monospace;text-align:center" class="text">"Make each day your masterpiece -John Wooden"</div></h2>
+                </div>
+
+                <div class="mySlides fade">
+                    <h2><div style="font-family:Monospace;text-align:center" class="text">"Wake up with determination. Go to bed with satisfaction"</div></h2>
+                </div>
+
+                <div class="mySlides fade">
+                    <h2><div style="font-family:Monospace;text-align:center" class="text">"JUST DO IT"</div></h2>
+                </div> 
+            </div>
+                <br>
+                <div style="text-align:center">
+                  <span class="dot"></span> 
+                  <span class="dot"></span> 
+                  <span class="dot"></span> 
+                  <span class="dot"></span> 
+                  <span class="dot"></span> 
+                  <span class="dot"></span> 
+                </div>
+        </div>
+        <footer data-role="footer" data-position="fixed" style="text-shadow: none;">
+            <h4>&copy; 2019 </h4>
+        </footer>
+    </div>
+
+    <!--Tasks page-->
+    <div data-role="page" id="TasksPage">
+        <header data-role="header" data-position="fixed" style="text-shadow: none;">
+            <h2>Agenda</h2>
+            <div data-role="navbar" data-iconpos="top">
+                <ul>
+                    <li><a href="#HomePage" data-icon="home" data-theme="a">Home</a>
+                    </li>
+                    <li><a href="#ViewTasksPage" data-icon="calendar" data-theme="a" class="ui-btn-active
+                        ui-state-persist">TODO</a>
+                    </li>
+                    <li><a href="#SettingsPage" data-icon="gear" data-theme="a">Settings</a>
+                    </li>
+                </ul>
+            </div>
+        </header>
+        <section data-role="content">
+            <form class="cmxform" id="AddTask">
+
+                    <fieldset data-role="controlgroup" data-type="horizontal" id="hasPriority">
+                            <legend>Prioritize task for:</legend>
+        
+                            <input type="radio" id="add1" name="radAddTense" data-theme="a" data-iconpos="left">
+                            <label for="add1">Today</label>
+        
+                            <input type="radio" id="add2" name="radAddTense" data-theme="a" data-iconpos="left">
+                            <label for="add2">Tomorrow</label>
+        
+                            <input type="radio" id="add3" name="radAddTense" data-theme="a" data-iconpos="left">
+                            <label for="add3">Future</label>
+        
+                    </fieldset>
+
+                <label for="taskTitle">Task to do:</label>
+                <input class="required" type="text" name="AddTaskTitle" id="AddTaskTitle">
+
+                <label for="date">Complete by date of:</label>
+                <input class="required" type="date" name="AddDate" id="AddDate">
+
+                <label for="textarea">Task description:</label>
+                <textarea name="AddDescription" id="AddDescription"></textarea>
+
+                <button id="btnSubmit">Submit</button>
+            </form>
+        </section>
+
+        <footer data-role="footer" data-position="fixed" style="text-shadow: none;">
+            <h4>&copy; 2019 </h4>
+        </footer>
+    </div>
+
+    <!--View Tasks page-->
+    <div data-role="page" id="ViewTasksPage">
+        <header data-role="header" data-position="fixed" style="text-shadow: none;">
+            <h2>Agenda</h2>
+            <div data-role="navbar" data-iconpos="top">
+                <ul>
+                    <li><a href="#HomePage" data-icon="home" data-theme="a">Home</a>
+                    </li>
+                    <li><a href="#ViewTasksPage" data-icon="calendar" data-theme="a" class="ui-btn-active
+                            ui-state-persist">TODO</a>
+                    </li>
+                    <li><a href="#SettingsPage" data-icon="gear" data-theme="a">Settings</a>
+                    </li>
+                </ul>
+            </div>
+        </header>
+        <section data-role="content">
+            <ul id="TaskList" data-role="listview" class="ui-listview-inset">
+                <li><a href="#EditTasksPage" data-theme="a"></a>
+                </li>
+            </ul>
+        </section>
+        <footer data-role="footer" data-position="fixed" style="text-shadow: none;">
+            <h4>&copy; 2019 </h4>
+        </footer>
+    </div>
+
+    <!--Edit Tasks page-->
+    <div data-role="page" id="EditTasksPage">
+        <header data-role="header" data-position="fixed" style="text-shadow: none;">
+            <h2>Agenda</h2>
+            <div data-role="navbar" data-iconpos="top">
+                <ul>
+                    <li><a href="#HomePage" data-icon="home" data-theme="a">Home</a>
+                    </li>
+                    <li><a href="#ViewTasksPage" data-icon="calendar" data-theme="a" class="ui-btn-active
+                            ui-state-persist">TODO</a>
+                    </li>
+                    <li><a href="#SettingsPage" data-icon="gear" data-theme="a">Settings</a>
+                    </li>
+                </ul>
+            </div>
+        </header>
+        <section data-role="content">
+            <form class="cmxform" id="EditTask">
+
+                    <fieldset data-role="controlgroup" data-type="horizontal" id="editPriority">
+                            <legend>Prioritize task for:</legend>
+        
+                            <input type="radio" id="edit1" name="radEditTense" data-theme="a" data-iconpos="left">
+                            <label for="edit1">Today</label>
+        
+                            <input type="radio" id="edit2" name="radEditTense" data-theme="a" data-iconpos="left">
+                            <label for="edit2">Tomorrow</label>
+        
+                            <input type="radio" id="edit3" name="radEditTense" data-theme="a" data-iconpos="left">
+                            <label for="edit3">Future</label>
+        
+                    </fieldset>
+
+                <label for="taskTitle">Task to do:</label>
+                <input class="required" type="text" name="EditTaskTitle" id="EditTaskTitle">
+
+                <label for="date">Complete by date of:</label>
+                <input class="required" type="date" name="EditDate" id="EditDate">
+
+                <label for="textarea">Task description:</label>
+                <textarea name="EditDescription" id="EditDescription"></textarea>
+            </form>
+            <fieldset data-role="controlgroup" data-type="horizontal">
+                <a href="#ViewTasksPage" data-role="button">Cancel</a>
+                <button id="btnUpdate">Update</button>
+                <button id="btnDelete">Delete</button>
+            </fieldset>
+        </section>
+
+        <footer data-role="footer" data-position="fixed" style="text-shadow: none;">
+            <h4>&copy; 2019 </h4>
+        </footer>
+    </div>
+
+    <!--Settings Page-->
+    <div data-role="page" id="SettingsPage">
+        <header data-role="header" data-position="fixed" style="text-shadow: none;">
+            <h2>Agenda</h2>
+            <div data-role="navbar" data-iconpos="top">
+                <ul>
+                    <li><a href="#HomePage" data-icon="home" data-theme="a">Home</a>
+                    </li>
+                    <li><a href="#ViewTasksPage" data-icon="eye" data-theme="a">TODO</a>
+                    </li>
+                    <li><a href="#SettingsPage" data-icon="gear" data-theme="a" class="ui-btn-active
+                        ui-state-persist">Settings</a>
+                    </li>
+                </ul>
+            </div>
+        </header>
+        <section data-role="content">
+            <form>
+                <button id="btnClearDB">Clear Database</button>
+            </form>
+        </section>
+		<footer data-role="footer" data-position="fixed" style="text-shadow: none;">
+                <h4>&copy; 2019 - COMR</h4>
+        </footer>
+    </div>
+</body>
+<script>
+    var slideIndex = 0;
+    showSlides();
+</script>
+</html>
