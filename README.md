@@ -1,2 +1,2 @@
 # PersonalAgenda
-Simple agenda web application with CRUD 
+Simple agenda web application with CRUD functions
