@@ -23,9 +23,6 @@ function btnUpdate_click() {
 function EditTasksPage_show() {
 	showCurrentTasks();
 }
-function TasksPage_show() {
-	updateTenseDropdown();
-}
 
 function init(){
     $("#btnSubmit").on("click", btnSubmit_click);
@@ -35,7 +32,7 @@ function init(){
 
     $("#EditTasksPage").on("pageshow", EditTasksPage_show);
     $("#ViewTasksPage").on("pageshow", ViewTasksPage_show);
-	$("#TasksPage").on("pageshow", TasksPage_show);
+
 }
 function initDB() {
 	try {

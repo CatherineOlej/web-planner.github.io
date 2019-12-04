@@ -5,7 +5,7 @@
  *       Date: Nov. 27.19
  *       Catherine Olejarczyk, Marcus Rodrigues
  */
-function updateTenseDropdown() {
+function updateTense() {
     var options = [];
 
     function callback(tx, results) {
