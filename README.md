@@ -11,9 +11,7 @@ git clone: https://github.com/CatherineOlej/PersonalAgenda.git
 
 The development process of this project was done in visual studio code. 
 The programming languages used for this devlopment are:
-•	 JavaScript
-•	 jQuery
-•	 HTML5/CSS3
+* JavaScript, jQuery, HTML5/CSS3
 *  Heroku
 
 ## Purpose 
