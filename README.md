@@ -26,11 +26,11 @@ These inputs include the following:
 •	Buttons to specify the tense (today, tomorrow, or future)
 •	Textarea for a description of the task in order for the user to keep track of what their particular task demands
 
-##Author
+## Author
 
 **Catherine Olejarczyk** - initial work
 
-##License 
+## License 
 
 This project is licensed under the MIT Licnese - see LICENSE.md for details
 
