@@ -4,8 +4,8 @@ This project is a simple personal agenda that allows users to create a task that
 
 # Get started
 
-Visit: https://guarded-thicket-12110.herokuapp.com/
-git clone: https://github.com/CatherineOlej/PersonalAgenda.git
+* Visit: https://guarded-thicket-12110.herokuapp.com/
+* git clone: https://github.com/CatherineOlej/PersonalAgenda.git
 
 ## How it was built
 
