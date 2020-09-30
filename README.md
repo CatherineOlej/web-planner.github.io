@@ -12,7 +12,7 @@ This project is a simple personal agenda that allows users to create a task that
 The development process of this project was done in visual studio code. 
 The programming languages used for this devlopment are:
 * JavaScript, jQuery, HTML5/CSS3
-*  Heroku
+* Heroku
 
 ## Purpose 
 
